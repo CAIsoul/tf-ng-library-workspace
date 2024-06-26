@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxTfLibraryComponent } from './ngx-tf-library.component';
+import { NavbarComponent } from './navbar.component';
 
-describe('NgxTfLibraryComponent', () => {
-  let component: NgxTfLibraryComponent;
-  let fixture: ComponentFixture<NgxTfLibraryComponent>;
+describe('NavbarComponent', () => {
+  let component: NavbarComponent;
+  let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NgxTfLibraryComponent]
+      imports: [NavbarComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NgxTfLibraryComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
