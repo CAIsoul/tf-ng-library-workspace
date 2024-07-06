@@ -1,5 +1,16 @@
-<div class="container">
-    <div class="head"></div>
+<div class="container" [class.isExpanded]="isExpanded">
+    <div class="head">
+        <div class="app-switch menu-item">
+            <div class="main-icon menu-icon"></div>
+            <div class="app-icon">
+                <span *ngIf="!prodBannerUrl">Product Banner Placeholder</span>
+                <img *ngIf="!!productBannerUrl" [src]="productBannerUrl" />
+            </div>
+            <div class="navbar-toggle" (click)="toggleNavbar()">
+                <div class="menu-icon left-arrow"></div>
+            </div>
+        </div>
+    </div>
     <div class="content">
         <div class="search"></div>
     </div>
