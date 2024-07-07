@@ -1,0 +1,33 @@
+:host {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+.custom-kendo-grid {
+    .k-grid-header tr {
+        background-color: #4b4b4b;
+        color: #ccc;
+    }
+
+    .k-grid-content {
+        tr.k-table-row {
+            height: 33px;
+
+            >td {
+                height: 33px;
+            }
+
+            &.k-selected td {
+                background-color: #ffffce;
+            }
+
+            &:nth-child(even) {
+                background-color: #ECF2F9;
+            }
+        }
+    }
+}

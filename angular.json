@@ -30,7 +30,8 @@
             "tsConfig": "projects/ngx-tf-library/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ]
           }
         },
@@ -72,6 +73,9 @@
               "projects/tf-ng-playground/src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "projects/tf-ng-playground/src/styles.less"
             ],
             "scripts": []
@@ -131,6 +135,9 @@
               }
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "projects/tf-ng-playground/src/styles.less"
             ],
             "scripts": []
