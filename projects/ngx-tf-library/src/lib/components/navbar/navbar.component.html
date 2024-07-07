@@ -4,7 +4,8 @@
             <div class="main-icon menu-icon"></div>
             <div class="app-icon">
                 <span *ngIf="!prodBannerUrl">Product Banner Placeholder</span>
-                <img *ngIf="!!productBannerUrl" [src]="productBannerUrl" />
+                <div *ngIf="!!prodBannerUrl" class="banner" [style.backgroundImage]="'url(' + prodBannerUrl + ')'">
+                </div>
             </div>
             <div class="navbar-toggle" (click)="toggleNavbar()">
                 <div class="menu-icon left-arrow"></div>

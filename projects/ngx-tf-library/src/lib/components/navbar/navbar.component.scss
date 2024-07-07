@@ -3,10 +3,20 @@ $navbar-width-expand: 300px;
 $navbar-menu-item-height: 54px;
 $navbar-icon-size: 24px;
 $navbar-bkgcolor: #262626;
+$navbar-bkgcolor-secondary: #333;
 $navbar-bkgcolor-hover: #4a4a4a;
 $navbar-animation-duration: 350ms;
 $navbar-animation-timing: linear;
 $navbar-menu-animation-duration: 250ms;
+
+:host {
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
 
 // Navbar general
 .container {
@@ -22,13 +32,13 @@ $navbar-menu-animation-duration: 250ms;
 
         &:hover {
             cursor: pointer;
-
-            &>div {
-                background-color: $navbar-bkgcolor-hover !important;
-            }
         }
 
         &>div {
+            &:hover {
+                background-color: $navbar-bkgcolor-hover !important;
+            }
+
             height: $navbar-menu-item-height;
             background-color: $navbar-bkgcolor;
         }
@@ -38,10 +48,12 @@ $navbar-menu-animation-duration: 250ms;
         height: $navbar-menu-item-height;
 
         .app-switch {
+            height: $navbar-menu-item-height;
             transition: width $navbar-animation-duration $navbar-animation-timing;
 
             &>div {
-                background-color: #333;
+                background-color: $navbar-bkgcolor-secondary;
+                transition: opacity $navbar-animation-duration $navbar-animation-timing;
             }
 
             &:hover {
@@ -52,6 +64,17 @@ $navbar-menu-animation-duration: 250ms;
 
             .main-icon {
                 background-image: url("../../../assets/icons/app-switcher.svg");
+            }
+
+            .app-icon {
+                height: 100%;
+
+                .banner {
+                    height: 100%;
+                    background-size: auto 38px;
+                    background-repeat: no-repeat;
+                    background-position: 18px center;
+                }
             }
 
             .navbar-toggle {
@@ -75,6 +98,7 @@ $navbar-menu-animation-duration: 250ms;
 
     .bottom {
         height: $navbar-menu-item-height;
+        background-color: $navbar-bkgcolor-secondary;
     }
 }
 
@@ -88,12 +112,14 @@ $navbar-menu-animation-duration: 250ms;
 
             .app-icon {
                 display: none;
+                opacity: 0;
             }
 
             .navbar-toggle {
                 width: $navbar-width-collapse / 2;
                 border-left: 1px solid #fff;
                 transform: translateX($navbar-width-collapse/2+1);
+                opacity: 1;
 
                 .menu-icon {
                     transform: rotate(180deg);
@@ -113,6 +139,11 @@ $navbar-menu-animation-duration: 250ms;
 
             .main-icon {
                 display: none;
+                opacity: 0;
+            }
+
+            .app-icon {
+                opacity: 1;
             }
 
             .navbar-toggle {

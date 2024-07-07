@@ -69,10 +69,7 @@
             "tsConfig": "projects/tf-ng-playground/tsconfig.app.json",
             "inlineStyleLanguage": "less",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "projects/tf-ng-playground/public"
-              }
+              "projects/tf-ng-playground/src/assets"
             ],
             "styles": [
               "projects/tf-ng-playground/src/styles.less"
