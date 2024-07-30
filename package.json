@@ -26,7 +26,7 @@
     "@progress/kendo-angular-dialog": "16.3.0",
     "@progress/kendo-angular-dropdowns": "16.3.0",
     "@progress/kendo-angular-excel-export": "16.3.0",
-    "@progress/kendo-angular-grid": "^16.3.0",
+    "@progress/kendo-angular-grid": "16.3.0",
     "@progress/kendo-angular-icons": "16.3.0",
     "@progress/kendo-angular-inputs": "16.3.0",
     "@progress/kendo-angular-intl": "16.3.0",

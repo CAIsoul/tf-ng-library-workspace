@@ -1,0 +1,99 @@
+@mixin generate-subs($n, $i: 1) {
+    @while $i <=$n {
+        >div:nth-of-type(#{$i}) {
+            $index: $i - 1;
+            transform: rotate(30deg * $index) translate(0px, -58px);
+            animation-delay: -0.35s + $index * 0.0583333333333;
+        }
+
+        $i: $i + 1;
+    }
+}
+
+@keyframes uil-default-anim {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+.container {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(102, 102, 102, 0.8);
+    font-size: 14px;
+
+    .spinner {
+        position: absolute;
+        margin: auto;
+        left: 0;
+        right: 0;
+        top: 40%;
+        overflow: visible;
+        opacity: .8;
+        border-radius: 2px;
+        display: flex;
+        width: 148px;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .spinner-icon-container {
+            height: 50px;
+            width: 44px;
+
+            .uil-default-css {
+                position: relative;
+                left: -78px;
+                top: -78px;
+                background: 0 0;
+                width: 200px;
+                height: 200px;
+                transform: scale(0.22);
+
+                &>div {
+                    &:first-of-type {
+                        transform: rotate(0) translate(0, -58px);
+                        animation-delay: -.35s;
+                    }
+
+                    background: #fff;
+                    border-radius: 8px;
+                    left: 93px;
+                    top: 80px;
+                    width: 16px;
+                    height: 40px;
+                    position: absolute;
+                    animation: uil-default-anim .7s linear infinite;
+                }
+
+                @include generate-subs(12);
+            }
+        }
+    }
+
+    .subtitle {
+        display: block;
+        margin-top: -5px;
+        width: 350px;
+
+        .subtitle-text {
+            color: #fff;
+            font-size: 18pt;
+            display: table;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    }
+}

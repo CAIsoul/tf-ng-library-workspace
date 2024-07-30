@@ -5,7 +5,7 @@
   "projects": {
     "ngx-tf-library": {
       "projectType": "library",
-      "root": "projects/ngx-tf-library",
+      "root": "projects/ngx-tf-library-demo",
       "sourceRoot": "projects/ngx-tf-library/src",
       "prefix": "lib",
       "architect": {

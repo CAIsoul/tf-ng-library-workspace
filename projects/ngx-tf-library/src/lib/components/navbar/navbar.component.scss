@@ -10,6 +10,10 @@ $navbar-animation-timing: linear;
 $navbar-menu-animation-duration: 250ms;
 
 :host {
+
+    // Provide basic z-index
+    z-index: 1;
+
     -webkit-user-select: none;
     /* Safari */
     -ms-user-select: none;
@@ -116,9 +120,9 @@ $navbar-menu-animation-duration: 250ms;
             }
 
             .navbar-toggle {
-                width: $navbar-width-collapse / 2;
+                width: calc(#{$navbar-width-collapse} / 2);
                 border-left: 1px solid #fff;
-                transform: translateX($navbar-width-collapse/2+1);
+                transform: translateX(calc(#{$navbar-width-collapse} / 2 + 1px));
                 opacity: 1;
 
                 .menu-icon {

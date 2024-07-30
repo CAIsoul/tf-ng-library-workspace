@@ -1,6 +1,6 @@
 {
   "name": "ngx-tf-library-demo",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "peerDependencies": {
     "@angular/animations": "^18.0.0",
     "@angular/common": "^18.0.0",
@@ -16,7 +16,7 @@
     "@progress/kendo-angular-dialog": "16.3.0",
     "@progress/kendo-angular-dropdowns": "16.3.0",
     "@progress/kendo-angular-excel-export": "16.3.0",
-    "@progress/kendo-angular-grid": "^16.3.0",
+    "@progress/kendo-angular-grid": "16.3.0",
     "@progress/kendo-angular-icons": "16.3.0",
     "@progress/kendo-angular-inputs": "16.3.0",
     "@progress/kendo-angular-intl": "16.3.0",

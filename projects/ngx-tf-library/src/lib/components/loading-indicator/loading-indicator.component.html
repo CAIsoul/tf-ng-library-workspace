@@ -1,0 +1,30 @@
+<div class="container" *ngIf="isVisible">
+    <div class="spinner">
+        <div class="spinner-icon-container">
+            <div class="uil-default-css">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="subtitle">
+            <div class="subtitle-text">{{subtitle}}</div>
+        </div>
+        <div class="progressbar">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%;">
+                </div>
+                <div class="progress-label" data-bind="text: progressLabel"></div>
+            </div>
+        </div>
+    </div>
+</div>
