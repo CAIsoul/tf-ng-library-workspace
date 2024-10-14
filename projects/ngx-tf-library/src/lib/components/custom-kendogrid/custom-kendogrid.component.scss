@@ -11,6 +11,15 @@
     .k-grid-header tr {
         background-color: #4b4b4b;
         color: #ccc;
+
+        th {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 29px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
     }
 
     .k-grid-content {
@@ -19,6 +28,12 @@
 
             >td {
                 height: 33px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding-top: 0;
+                padding-bottom: 0;
+                color: #2e2e2e;
             }
 
             &.k-selected td {
@@ -28,6 +43,109 @@
             &:nth-child(even) {
                 background-color: #ECF2F9;
             }
+        }
+    }
+}
+
+.k-toolbar.k-grid-toolbar {
+    padding: 0;
+    background-color: transparent;
+
+    .control-bar {
+        display: flex;
+        height: 28px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-left: 16px;
+
+        .grid-toolbar {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            padding-top: 3px;
+            padding-bottom: 3px;
+
+            .tool-button {
+                width: 22px;
+                height: 22px;
+                background-size: 16px;
+                background-position: center;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                opacity: .8;
+                margin: 0 1px;
+
+                &.grid-view {
+                    background-image: url(../../../assets/icons/grid/grid-view.svg);
+
+                    &.active {
+                        background-image: url(../../../assets/icons/grid/grid-view-active.svg);
+                    }
+                }
+
+                &.detail-view {
+                    background-image: url(../../../assets/icons/grid/detail-view.svg);
+
+                    &.active {
+                        background-image: url(../../../assets/icons/grid/detail-view-active.svg);
+                    }
+                }
+
+                &.map-view {
+                    background-size: 20px;
+                    background-image: url(../../../assets/icons/grid/map-view.svg);
+
+                    &.active {
+                        background-image: url(../../../assets/icons/grid/map-view-active.svg);
+                    }
+                }
+
+                &.summary {
+                    background-image: url(../../../assets/icons/grid/summary.svg);
+
+                    &.active {
+                        background-image: url(../../../assets/icons/grid/summary-active.svg);
+                    }
+                }
+
+                &.columns {
+                    background-image: url(../../../assets/icons/grid/column.png);
+                }
+
+                &.layout {
+                    background-image: url(../../../assets/icons/grid/layout.png);
+                }
+
+                &.filter {
+                    background-image: url(../../../assets/icons/grid/filter.png);
+                }
+
+                &.thematic {
+                    background-image: url(../../../assets/icons/grid/thematic.svg);
+                }
+
+                &.refresh {
+                    background-image: url(../../../assets/icons/grid/refresh.png);
+                }
+
+                &.global-replace {
+                    background-image: url(../../../assets/icons/grid/replace.png);
+                }
+
+                &.delete {
+                    background-image: url(../../../assets/icons/grid/delete.png);
+                }
+            }
+
+            .tool-divider {
+                width: 0;
+                border-right: 1px solid #333;
+                margin: 0 3px;
+            }
+        }
+
+        .grid-status {
+            flex: 1;
         }
     }
 }

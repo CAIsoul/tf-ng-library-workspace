@@ -27,29 +27,44 @@ $navbar-menu-animation-duration: 250ms;
     height: 100%;
     background-color: $navbar-bkgcolor;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     transition: width $navbar-animation-duration $navbar-animation-timing;
 
     // Menu item
     .menu-item {
         position: relative;
+        display: flex;
+        flex-direction: row;
 
         &:hover {
             cursor: pointer;
+
+            &>div {
+                background-color: $navbar-bkgcolor-hover !important;
+            }
         }
 
         &>div {
-            &:hover {
-                background-color: $navbar-bkgcolor-hover !important;
-            }
-
             height: $navbar-menu-item-height;
             background-color: $navbar-bkgcolor;
+        }
+
+        .menu-label {
+            font-size: 16px;
+            color: #fff;
+            line-height: $navbar-menu-item-height;
         }
     }
 
     .head {
+        position: relative;
         height: $navbar-menu-item-height;
+
+        &:hover {
+            .navbar-toggle {
+                display: block;
+            }
+        }
 
         .app-switch {
             height: $navbar-menu-item-height;
@@ -60,18 +75,13 @@ $navbar-menu-animation-duration: 250ms;
                 transition: opacity $navbar-animation-duration $navbar-animation-timing;
             }
 
-            &:hover {
-                .navbar-toggle {
-                    display: block;
-                }
-            }
-
             .main-icon {
                 background-image: url("../../../assets/icons/app-switcher.svg");
             }
 
             .app-icon {
                 height: 100%;
+                flex: 1;
 
                 .banner {
                     height: 100%;
@@ -80,18 +90,23 @@ $navbar-menu-animation-duration: 250ms;
                     background-position: 18px center;
                 }
             }
+        }
 
-            .navbar-toggle {
-                display: none;
-                position: absolute;
-                top: 0;
-                right: 0;
+        .navbar-toggle {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: transform $navbar-animation-duration $navbar-animation-timing;
+            background-color: $navbar-bkgcolor-secondary;
+
+            &:hover {
+                background-color: $navbar-bkgcolor-hover;
+            }
+
+            .menu-icon {
+                width: 100%;
                 transition: transform $navbar-animation-duration $navbar-animation-timing;
-
-                .menu-icon {
-                    width: 100%;
-                    transition: transform $navbar-animation-duration $navbar-animation-timing;
-                }
             }
         }
     }
@@ -110,6 +125,12 @@ $navbar-menu-animation-duration: 250ms;
 .container:not(.isExpanded) {
     width: $navbar-width-collapse;
 
+    .menu-item {
+        .menu-label {
+            display: none;
+        }
+    }
+
     .head {
         .app-switch {
             width: $navbar-width-collapse;
@@ -118,16 +139,16 @@ $navbar-menu-animation-duration: 250ms;
                 display: none;
                 opacity: 0;
             }
+        }
 
-            .navbar-toggle {
-                width: calc(#{$navbar-width-collapse} / 2);
-                border-left: 1px solid #fff;
-                transform: translateX(calc(#{$navbar-width-collapse} / 2 + 1px));
-                opacity: 1;
+        .navbar-toggle {
+            width: calc(#{$navbar-width-collapse} / 2);
+            border-left: 1px solid #fff;
+            transform: translateX(calc(#{$navbar-width-collapse} / 2 + 1px));
+            opacity: 1;
 
-                .menu-icon {
-                    transform: rotate(180deg);
-                }
+            .menu-icon {
+                transform: rotate(180deg);
             }
         }
     }
@@ -136,6 +157,12 @@ $navbar-menu-animation-duration: 250ms;
 // Navbar when expanded
 .container.isExpanded {
     width: $navbar-width-expand;
+
+    .menu-item {
+        .menu-label {
+            flex: 1;
+        }
+    }
 
     .head {
         .app-switch {
@@ -149,14 +176,14 @@ $navbar-menu-animation-duration: 250ms;
             .app-icon {
                 opacity: 1;
             }
+        }
 
-            .navbar-toggle {
-                width: $navbar-width-collapse;
-                transform: translateX(0);
+        .navbar-toggle {
+            width: $navbar-width-collapse;
+            transform: translateX(0);
 
-                .menu-icon {
-                    transform: rotate(0deg);
-                }
+            .menu-icon {
+                transform: rotate(0deg);
             }
         }
     }

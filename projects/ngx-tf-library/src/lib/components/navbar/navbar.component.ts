@@ -1,16 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { NavbarMenuItem } from './navbar.model';
 
 @Component({
   selector: 'lib-navbar',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss'
+  styleUrl: './navbar.component.scss',
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class NavbarComponent {
   @Input() isExpanded: boolean = false;
   @Input() prodBannerUrl: string = "";
+  @Input() isSearchEnabled: boolean = true;
+  @Input() menuItems: Array<NavbarMenuItem> = [];
 
   constructor() {
   }
@@ -22,5 +26,9 @@ export class NavbarComponent {
     }
 
     this.isExpanded = isToExpand;
+  }
+
+  onMenuItemClick($event: Event, action: Function | undefined) {
+    action && action();
   }
 }

@@ -7,13 +7,20 @@
                 <div *ngIf="!!prodBannerUrl" class="banner" [style.backgroundImage]="'url(' + prodBannerUrl + ')'">
                 </div>
             </div>
-            <div class="navbar-toggle" (click)="toggleNavbar()">
-                <div class="menu-icon left-arrow"></div>
+        </div>
+        <div class="navbar-toggle" (click)="toggleNavbar()">
+            <div class="menu-icon left-arrow"></div>
+        </div>
+    </div>
+    <div class="search" *ngIf="isSearchEnabled"></div>
+    <div class="menu">
+        <div *ngFor="let item of menuItems" class="menu-item" (click)="onMenuItemClick($event, item.action)">
+            <div class="menu-icon" [style.backgroundImage]="'url(' + item.iconUrl + ')'"></div>
+            <div class="menu-label">{{item.label}}</div>
+            <div *ngIf="item.subMenus && item.subMenus.length > 0" class="sub-menu">
+                <div *ngFor="let item of item.subMenus"></div>
             </div>
         </div>
     </div>
-    <div class="content">
-        <div class="search"></div>
-    </div>
-    <div class="bottom"></div>
+    <div class="foot"></div>
 </div>

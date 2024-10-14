@@ -1,6 +1,30 @@
-<kendo-grid class="custom-kendo-grid"
-            [kendoGridBinding]="gridData"
-            kendoGridSelectBy="Id"
-            [sortable]="true"
-            [resizable]="true">
+<kendo-grid class="custom-kendo-grid" [data]="gridData" kendoGridSelectBy="Id" [sortable]="true" [resizable]="true">
+    <ng-template kendoGridToolbarTemplate>
+        <div class="control-bar">
+            <div class="grid-toolbar">
+                <div class="tool-button grid-view"></div>
+                <div class="tool-button detail-view"></div>
+                <div class="tool-button map-view"></div>
+                <div class="tool-divider"></div>
+                <div class="tool-button summary"></div>
+                <div class="tool-button columns"></div>
+                <div class="tool-divider"></div>
+                <div class="tool-button layout"></div>
+                <div class="tool-button filter"></div>
+                <div class="tool-button thematic"></div>
+                <div class="tool-button refresh"></div>
+                <div class="tool-button global-replace"></div>
+                <div class="tool-divider"></div>
+                <div class="tool-button delete"></div>
+            </div>
+            <div class="grid-status">
+                <div class="thematic-status"></div>
+                <div class="filter-status"></div>
+                <div class="layout-status"></div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template kendoPagerTemplate>
+        test
+    </ng-template>
 </kendo-grid>

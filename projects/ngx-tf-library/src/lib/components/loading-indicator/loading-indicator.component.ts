@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 const DEFAULT_SUBTITLE = "Loading";
 
@@ -8,7 +8,8 @@ const DEFAULT_SUBTITLE = "Loading";
   standalone: true,
   imports: [CommonModule],
   templateUrl: './loading-indicator.component.html',
-  styleUrl: './loading-indicator.component.scss'
+  styleUrl: './loading-indicator.component.scss',
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class LoadingIndicatorComponent {
   @Input() isVisible: boolean = false;
