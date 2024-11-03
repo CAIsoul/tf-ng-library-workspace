@@ -15,6 +15,7 @@ export class NavbarComponent {
   @Input() prodBannerUrl: string = "";
   @Input() isSearchEnabled: boolean = true;
   @Input() menuItems: Array<NavbarMenuItem> = [];
+  @Input() footItems: Array<NavbarMenuItem> = [];
 
   constructor() {
   }
@@ -30,5 +31,9 @@ export class NavbarComponent {
 
   onMenuItemClick($event: Event, action: Function | undefined) {
     action && action();
+  }
+
+  onFootEllipsisBtnClick($event: Event) {
+
   }
 }

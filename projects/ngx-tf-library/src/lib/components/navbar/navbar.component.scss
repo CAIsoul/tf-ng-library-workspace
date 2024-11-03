@@ -86,14 +86,11 @@ $navbar-menu-animation-duration: 250ms;
             .app-icon {
                 position: absolute;
                 left: 0;
-                transition: opactiy $navbar-animation-duration $navbar-animation-timing;
-                -webkit-transition: opacity $navbar-animation-duration $navbar-animation-timing;
-                -moz-transition: opacity $navbar-animation-duration $navbar-animation-timing;
-                -o-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+                @extend %opacity-transition;
             }
 
             .main-icon {
-                background-image: url("../../../assets/icons/app-switcher.svg");
+                background-image: url("../../../assets/icons/navbar/app-switcher.svg");
             }
 
             .app-icon {
@@ -115,7 +112,7 @@ $navbar-menu-animation-duration: 250ms;
             position: absolute;
             top: 0;
             right: 0;
-            transition: transform $navbar-animation-duration $navbar-animation-timing;
+            transition: transform $navbar-animation-duration / $navbar-animation-timing;
             background-color: $navbar-bkgcolor-secondary;
 
             &:hover {
@@ -129,13 +126,30 @@ $navbar-menu-animation-duration: 250ms;
         }
     }
 
-    .content {
+    .menu {
         flex: 1;
     }
 
-    .bottom {
+    .foot {
+        display: flex;
+        justify-content: left;
         height: $navbar-menu-item-height;
         background-color: $navbar-bkgcolor-secondary;
+        overflow: hidden;
+
+        .menu-icon.ellipsis {
+            @extend %opacity-transition;
+            position: absolute;
+            left: 0;
+            background-image: url('../../../assets/icons/navbar/ellipsis.svg');
+        }
+
+        .foot-toolbar {
+            @extend %opacity-transition;
+            display: flex;
+            width: $navbar-width-expand;
+            padding-left: 42px;
+        }
     }
 }
 
@@ -147,8 +161,7 @@ $navbar-menu-animation-duration: 250ms;
         width: $navbar-width-collapse;
 
         .menu-label {
-            // width: 0;
-            opacity: 0;
+            @extend %hide;
         }
     }
 
@@ -164,26 +177,33 @@ $navbar-menu-animation-duration: 250ms;
             width: $navbar-width-collapse;
 
             .main-icon {
-                visibility: visible;
-                opacity: 1;
+                @extend %show;
             }
 
             .app-icon {
-                visibility: hidden;
-                opacity: 0;
+                @extend %hide;
             }
         }
 
         .navbar-toggle {
             display: none;
             width: 0;
-            border-left: 1px solid #fff;
             transform: translateX(calc(#{$navbar-width-collapse} / 2 + 1px));
-            opacity: 1;
+            @extend %show;
 
             .menu-icon {
                 transform: rotate(180deg);
             }
+        }
+    }
+
+    .foot {
+        .menu-icon.ellipsis {
+            @extend %show;
+        }
+
+        .foot-toolbar {
+            @extend %hide;
         }
     }
 }
@@ -196,8 +216,7 @@ $navbar-menu-animation-duration: 250ms;
         width: $navbar-width-expand;
 
         .menu-label {
-            // width: $navbar-width-expand - $navbar-width-collapse;
-            opacity: 1;
+            @extend %show;
         }
     }
 
@@ -206,13 +225,11 @@ $navbar-menu-animation-duration: 250ms;
             width: $navbar-width-expand;
 
             .main-icon {
-                visibility: hidden;
-                opacity: 0;
+                @extend %hide;
             }
 
             .app-icon {
-                visibility: visible;
-                opacity: 1;
+                @extend %show;
             }
         }
 
@@ -223,6 +240,16 @@ $navbar-menu-animation-duration: 250ms;
             .menu-icon {
                 transform: rotate(0deg);
             }
+        }
+    }
+
+    .foot {
+        .menu-icon.ellipsis {
+            @extend %hide;
+        }
+
+        .foot-toolbar {
+            @extend %show;
         }
     }
 }
@@ -236,6 +263,28 @@ $navbar-menu-animation-duration: 250ms;
     background-repeat: no-repeat;
 
     &.left-arrow {
-        background-image: url("../../../assets/icons/expand-collapse.svg");
+        background-image: url("../../../assets/icons/navbar/expand-collapse.svg");
     }
+
+    &:hover {
+        background-color: $navbar-bkgcolor-hover;
+        cursor: pointer;
+    }
+}
+
+%opacity-transition {
+    transition: opactiy $navbar-animation-duration $navbar-animation-timing;
+    -webkit-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+    -moz-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+    -o-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+}
+
+%show {
+    visibility: visible;
+    opacity: 1;
+}
+
+%hide {
+    visibility: hidden;
+    opacity: 0;
 }

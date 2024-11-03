@@ -23,4 +23,24 @@ export class NavbarPlaygroundComponent {
       action: () => { alert(2) }
     }
   ];
+  public footItems: Array<NavbarMenuItem> = [
+    {
+      name: "logout",
+      iconUrl: "assets/icons/logout.svg",
+      label: "Log Out",
+      action: () => { alert("Log Out!") }
+    },
+    {
+      name: "uesrprofile",
+      iconUrl: "assets/icons/user_profile.svg",
+      label: "User Profile",
+      action: () => { alert("Open User Profile page!") }
+    },
+    {
+      name: "patrolconfig",
+      iconUrl: "assets/icons/patrol_config.svg",
+      label: "Patrol Configuration",
+      action: () => { alert("Open Patrol Configuration page!") }
+    },
+  ];
 }
