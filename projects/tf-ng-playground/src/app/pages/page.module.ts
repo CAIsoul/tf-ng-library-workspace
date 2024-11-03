@@ -7,14 +7,19 @@ import { CommonModule } from "@angular/common";
 @NgModule({
     imports: [
         CommonModule,
+        // NavbarPlaygroundComponent,
+        // KendogridPlaygroundComponent,
+        // BaseGridPagePlaygroundComponent,
+    ],
+    declarations: [
         NavbarPlaygroundComponent,
         KendogridPlaygroundComponent,
         BaseGridPagePlaygroundComponent,
     ],
     exports: [
-        NavbarPlaygroundComponent,
-        KendogridPlaygroundComponent,
-        BaseGridPagePlaygroundComponent
+        // NavbarPlaygroundComponent,
+        // KendogridPlaygroundComponent,
+        // BaseGridPagePlaygroundComponent
     ],
 })
 export class PageModule { }

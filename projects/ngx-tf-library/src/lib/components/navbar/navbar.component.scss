@@ -9,6 +9,9 @@ $navbar-animation-duration: 350ms;
 $navbar-animation-timing: linear;
 $navbar-menu-animation-duration: 250ms;
 
+// Debug purpose
+// $navbar-animation-duration: 500ms;
+
 :host {
 
     // Provide basic z-index
@@ -35,6 +38,8 @@ $navbar-menu-animation-duration: 250ms;
         position: relative;
         display: flex;
         flex-direction: row;
+        overflow: hidden;
+        transition: width $navbar-animation-duration $navbar-animation-timing;
 
         &:hover {
             cursor: pointer;
@@ -53,18 +58,20 @@ $navbar-menu-animation-duration: 250ms;
             font-size: 16px;
             color: #fff;
             line-height: $navbar-menu-item-height;
+            white-space: nowrap;
+            overflow: hidden;
+            flex: 1;
+            transition: opactiy $navbar-animation-duration $navbar-animation-timing,
+                width $navbar-animation-duration $navbar-animation-timing;
+            -webkit-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+            -moz-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+            -o-transition: opacity $navbar-animation-duration $navbar-animation-timing;
         }
     }
 
     .head {
         position: relative;
         height: $navbar-menu-item-height;
-
-        &:hover {
-            .navbar-toggle {
-                display: block;
-            }
-        }
 
         .app-switch {
             height: $navbar-menu-item-height;
@@ -75,16 +82,28 @@ $navbar-menu-animation-duration: 250ms;
                 transition: opacity $navbar-animation-duration $navbar-animation-timing;
             }
 
+            .main-icon,
+            .app-icon {
+                position: absolute;
+                left: 0;
+                transition: opactiy $navbar-animation-duration $navbar-animation-timing;
+                -webkit-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+                -moz-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+                -o-transition: opacity $navbar-animation-duration $navbar-animation-timing;
+            }
+
             .main-icon {
                 background-image: url("../../../assets/icons/app-switcher.svg");
             }
 
             .app-icon {
                 height: 100%;
+                width: $navbar-width-expand - $navbar-width-collapse;
                 flex: 1;
 
                 .banner {
                     height: 100%;
+                    border-right: 1px solid $navbar-bkgcolor;
                     background-size: auto 38px;
                     background-repeat: no-repeat;
                     background-position: 18px center;
@@ -93,7 +112,6 @@ $navbar-menu-animation-duration: 250ms;
         }
 
         .navbar-toggle {
-            display: none;
             position: absolute;
             top: 0;
             right: 0;
@@ -126,23 +144,39 @@ $navbar-menu-animation-duration: 250ms;
     width: $navbar-width-collapse;
 
     .menu-item {
+        width: $navbar-width-collapse;
+
         .menu-label {
-            display: none;
+            // width: 0;
+            opacity: 0;
         }
     }
 
     .head {
+        &:hover {
+            .navbar-toggle {
+                display: block;
+                width: calc(#{$navbar-width-collapse} / 2)
+            }
+        }
+
         .app-switch {
             width: $navbar-width-collapse;
 
+            .main-icon {
+                visibility: visible;
+                opacity: 1;
+            }
+
             .app-icon {
-                display: none;
+                visibility: hidden;
                 opacity: 0;
             }
         }
 
         .navbar-toggle {
-            width: calc(#{$navbar-width-collapse} / 2);
+            display: none;
+            width: 0;
             border-left: 1px solid #fff;
             transform: translateX(calc(#{$navbar-width-collapse} / 2 + 1px));
             opacity: 1;
@@ -159,8 +193,11 @@ $navbar-menu-animation-duration: 250ms;
     width: $navbar-width-expand;
 
     .menu-item {
+        width: $navbar-width-expand;
+
         .menu-label {
-            flex: 1;
+            // width: $navbar-width-expand - $navbar-width-collapse;
+            opacity: 1;
         }
     }
 
@@ -169,11 +206,12 @@ $navbar-menu-animation-duration: 250ms;
             width: $navbar-width-expand;
 
             .main-icon {
-                display: none;
+                visibility: hidden;
                 opacity: 0;
             }
 
             .app-icon {
+                visibility: visible;
                 opacity: 1;
             }
         }
