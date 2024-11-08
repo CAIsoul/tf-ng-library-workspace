@@ -10,7 +10,7 @@ $navbar-animation-timing: linear;
 $navbar-menu-animation-duration: 250ms;
 
 // Debug purpose
-// $navbar-animation-duration: 500ms;
+// $navbar-animation-duration: 2000ms;
 
 :host {
 
@@ -75,6 +75,7 @@ $navbar-menu-animation-duration: 250ms;
 
         .app-switch {
             height: $navbar-menu-item-height;
+            border-right: 1px solid transparent;
             transition: width $navbar-animation-duration $navbar-animation-timing;
 
             &>div {
@@ -112,7 +113,7 @@ $navbar-menu-animation-duration: 250ms;
             position: absolute;
             top: 0;
             right: 0;
-            transition: transform $navbar-animation-duration / $navbar-animation-timing;
+            transition: transform $navbar-animation-duration $navbar-animation-timing;
             background-color: $navbar-bkgcolor-secondary;
 
             &:hover {
@@ -137,11 +138,17 @@ $navbar-menu-animation-duration: 250ms;
         background-color: $navbar-bkgcolor-secondary;
         overflow: hidden;
 
-        .menu-icon.ellipsis {
-            @extend %opacity-transition;
-            position: absolute;
-            left: 0;
-            background-image: url('../../../assets/icons/navbar/ellipsis.svg');
+        .menu-icon {
+            &:hover {
+                background-color: $navbar-bkgcolor-hover;
+            }
+
+            &.ellipsis {
+                @extend %opacity-transition;
+                position: absolute;
+                left: 0;
+                background-image: url('../../../assets/icons/navbar/ellipsis.svg');
+            }
         }
 
         .foot-toolbar {
@@ -267,7 +274,6 @@ $navbar-menu-animation-duration: 250ms;
     }
 
     &:hover {
-        background-color: $navbar-bkgcolor-hover;
         cursor: pointer;
     }
 }
